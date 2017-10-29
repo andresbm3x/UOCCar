@@ -5,8 +5,8 @@
 ## Debug
 ProjectName            :=UOCCarServer
 ConfigurationName      :=Debug
-WorkspacePath          :="C:/Users/andre/Downloads/Telegram Desktop/UOCCar"
-ProjectPath            :="C:/Users/andre/Downloads/Telegram Desktop/UOCCar/UOCCarServer"
+WorkspacePath          :=E:/UOC/UOCCar/UOCCar
+ProjectPath            :=E:/UOC/UOCCar/UOCCar/UOCCarServer
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
@@ -94,7 +94,7 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/src_main.c$(ObjectSuffix): src/main.c $(IntermediateDirectory)/src_main.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "C:/Users/andre/Downloads/Telegram Desktop/UOCCar/UOCCarServer/src/main.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_main.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "E:/UOC/UOCCar/UOCCar/UOCCarServer/src/main.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_main.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/src_main.c$(DependSuffix): src/main.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_main.c$(ObjectSuffix) -MF$(IntermediateDirectory)/src_main.c$(DependSuffix) -MM src/main.c
 
@@ -102,7 +102,7 @@ $(IntermediateDirectory)/src_main.c$(PreprocessSuffix): src/main.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_main.c$(PreprocessSuffix) src/main.c
 
 $(IntermediateDirectory)/src_svrMain.c$(ObjectSuffix): src/svrMain.c $(IntermediateDirectory)/src_svrMain.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "C:/Users/andre/Downloads/Telegram Desktop/UOCCar/UOCCarServer/src/svrMain.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_svrMain.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "E:/UOC/UOCCar/UOCCar/UOCCarServer/src/svrMain.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_svrMain.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/src_svrMain.c$(DependSuffix): src/svrMain.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_svrMain.c$(ObjectSuffix) -MF$(IntermediateDirectory)/src_svrMain.c$(DependSuffix) -MM src/svrMain.c
 
@@ -110,7 +110,7 @@ $(IntermediateDirectory)/src_svrMain.c$(PreprocessSuffix): src/svrMain.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_svrMain.c$(PreprocessSuffix) src/svrMain.c
 
 $(IntermediateDirectory)/src_svrMenu.c$(ObjectSuffix): src/svrMenu.c $(IntermediateDirectory)/src_svrMenu.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "C:/Users/andre/Downloads/Telegram Desktop/UOCCar/UOCCarServer/src/svrMenu.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_svrMenu.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "E:/UOC/UOCCar/UOCCar/UOCCarServer/src/svrMenu.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_svrMenu.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/src_svrMenu.c$(DependSuffix): src/svrMenu.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_svrMenu.c$(ObjectSuffix) -MF$(IntermediateDirectory)/src_svrMenu.c$(DependSuffix) -MM src/svrMenu.c
 

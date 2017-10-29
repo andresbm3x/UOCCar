@@ -92,8 +92,8 @@ carError cars_checkCar(tCar * car)
 	//Validate the plate
 	if (strlen(car->plate)==7){
 		
-		for (int i=0;i>4;i++){
-			if (isalpha(car->plate[i])=1){
+		for (int i=0;i<4;i++){
+			if (isalpha(car->plate[i])){
 				return CAR_INVALIDPLATE;
 			}
 		}
@@ -103,12 +103,12 @@ carError cars_checkCar(tCar * car)
 	}
 	
 	//Validate the brand
-	if ((strlen(car->brand) < 2) and (strlen(car->brand) > 32)){
+	if (strlen(car->brand) < 2){
 		return CAR_INVALIDBRAND;
 	}
 	
 	//Validate the model
-	if ((strlen(car->model) < 2) and (strlen(car->model) > 32)){
+	if (strlen(car->model) < 2){
 		return CAR_INVALIDMODEL;
 	}	
 	/// END OF EX.3.2

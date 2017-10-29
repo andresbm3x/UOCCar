@@ -5,15 +5,15 @@
 ## Debug
 ProjectName            :=UOCCarLib
 ConfigurationName      :=Debug
-WorkspacePath          :=C:/Projects/CLang/UOCCar
-ProjectPath            :=C:/Projects/CLang/UOCCar/UOCCarLib
+WorkspacePath          :=E:/UOC/UOCCar/UOCCar
+ProjectPath            :=E:/UOC/UOCCar/UOCCar/UOCCarLib
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
-User                   :=Sebas
-Date                   :=26/10/2017
+User                   :=andre
+Date                   :=29/10/2017
 CodeLitePath           :="C:/Program Files (x86)/CodeLite"
 LinkerName             :=C:/TDM-GCC-32/bin/g++.exe
 SharedObjectLinkerName :=C:/TDM-GCC-32/bin/g++.exe -shared -fPIC
@@ -78,9 +78,9 @@ $(OutputFile): $(Objects)
 	@$(MakeDirCommand) $(@D)
 	@echo "" > $(IntermediateDirectory)/.d
 	@echo $(Objects0)  > $(ObjectsFileList)
-	$(AR) $(ArchiveOutputSwitch)$(OutputFile) @$(ObjectsFileList) $(ArLibs)
-	@$(MakeDirCommand) "C:\Projects\CLang\UOCCar/.build-debug"
-	@echo rebuilt > "C:\Projects\CLang\UOCCar/.build-debug/UOCCarLib"
+	$(AR) $(ArchiveOutputSwitch)$(OutputFile) $(Objects) $(ArLibs)
+	@$(MakeDirCommand) "E:\UOC\UOCCar\UOCCar/.build-debug"
+	@echo rebuilt > "E:\UOC\UOCCar\UOCCar/.build-debug/UOCCarLib"
 
 MakeIntermediateDirs:
 	@$(MakeDirCommand) "./Debug"
@@ -96,7 +96,7 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/src_cars.c$(ObjectSuffix): src/cars.c $(IntermediateDirectory)/src_cars.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "C:/Projects/CLang/UOCCar/UOCCarLib/src/cars.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_cars.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "E:/UOC/UOCCar/UOCCar/UOCCarLib/src/cars.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_cars.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/src_cars.c$(DependSuffix): src/cars.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_cars.c$(ObjectSuffix) -MF$(IntermediateDirectory)/src_cars.c$(DependSuffix) -MM src/cars.c
 
@@ -104,7 +104,7 @@ $(IntermediateDirectory)/src_cars.c$(PreprocessSuffix): src/cars.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_cars.c$(PreprocessSuffix) src/cars.c
 
 $(IntermediateDirectory)/src_helpers.c$(ObjectSuffix): src/helpers.c $(IntermediateDirectory)/src_helpers.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "C:/Projects/CLang/UOCCar/UOCCarLib/src/helpers.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_helpers.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "E:/UOC/UOCCar/UOCCar/UOCCarLib/src/helpers.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_helpers.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/src_helpers.c$(DependSuffix): src/helpers.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_helpers.c$(ObjectSuffix) -MF$(IntermediateDirectory)/src_helpers.c$(DependSuffix) -MM src/helpers.c
 
@@ -112,7 +112,7 @@ $(IntermediateDirectory)/src_helpers.c$(PreprocessSuffix): src/helpers.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_helpers.c$(PreprocessSuffix) src/helpers.c
 
 $(IntermediateDirectory)/src_offices.c$(ObjectSuffix): src/offices.c $(IntermediateDirectory)/src_offices.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "C:/Projects/CLang/UOCCar/UOCCarLib/src/offices.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_offices.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "E:/UOC/UOCCar/UOCCar/UOCCarLib/src/offices.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_offices.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/src_offices.c$(DependSuffix): src/offices.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_offices.c$(ObjectSuffix) -MF$(IntermediateDirectory)/src_offices.c$(DependSuffix) -MM src/offices.c
 
@@ -120,7 +120,7 @@ $(IntermediateDirectory)/src_offices.c$(PreprocessSuffix): src/offices.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_offices.c$(PreprocessSuffix) src/offices.c
 
 $(IntermediateDirectory)/src_operations.c$(ObjectSuffix): src/operations.c $(IntermediateDirectory)/src_operations.c$(DependSuffix)
-	$(CC) $(SourceSwitch) "C:/Projects/CLang/UOCCar/UOCCarLib/src/operations.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_operations.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "E:/UOC/UOCCar/UOCCar/UOCCarLib/src/operations.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_operations.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/src_operations.c$(DependSuffix): src/operations.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_operations.c$(ObjectSuffix) -MF$(IntermediateDirectory)/src_operations.c$(DependSuffix) -MM src/operations.c
 
