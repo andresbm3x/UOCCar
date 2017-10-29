@@ -155,16 +155,17 @@ void svrMenu_registerNewCar()
 				optionInformed=1;
 			break;
 			case 2:
-				newCar->type=CAR_ECONOMY;
+				newCar->type=CAR_SEDAN;
 				optionInformed=1;
 			break;
 			case 3:
-				newCar->type=CAR_ECONOMY;
+				newCar->type=CAR_VAGON;
 				optionInformed=1;
 			break;
 			case 4:
-				newCar->type=CAR_ECONOMY;
+				newCar->type=CAR_SPORT;
 				optionInformed=1;
+			break;
 			default:
 				printf("\nIts necesary to choose one of the available options:\n");
 				helpers_scanInt(&option);
@@ -173,6 +174,7 @@ void svrMenu_registerNewCar()
 		
 	}	
 	/// END OF EX.3.1
+	err = cars_checkCar(newCar);
 	
 	
 	// Display the result on screen.
