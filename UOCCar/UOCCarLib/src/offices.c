@@ -18,8 +18,11 @@ void offices_initStruct(tOffice * office)
 	///
 	/// EX.5.1. Initialize all properties of an office struct to 0
 	///
-	
-	
+	memset(office->address, 0, ADDRESS_LENGTH);
+	memset(office->city, 0, CITY_LENGTH);
+	memset(office->country, 0, COUNTRY_LENGTH);
+	memset(office->postalCode, 0, POSTAL_CODE_LENGTH);
+	office->nextOffice =NULL;	
 	///
 	/// END OF EX.5.1.
 	///
@@ -40,7 +43,15 @@ tOffice * offices_getLastOffice()
 	/// EX.5.1. Initialize all properties of an office struct to 0
 	///	
 	
+	if (retValue == NULL)
+	{
+		return offices_firstOffice;
+	}
 	
+	while (retValue->nextOffice != NULL)
+	{
+		retValue = retValue->nextOffice;
+	}
 	
 	/// END OF EX.5.1.
 	
@@ -59,9 +70,22 @@ officeError offices_registerNewOffice(tOffice * office)
 	/// EX.5.1. Validate the contents of the struct, and add it to the list if everything is correct.
 	///         Return the error code in case of any error in the data.
 	///	
+	officeError err;
 	
+	err = offices_checkOffice(office);
+	if (err != OFFICE_NOERR)
+	{
+		return err;
+	}
 	
-		
+	if (offices_firstOffice == NULL)
+	{
+		offices_firstOffice = office;
+	}
+	else
+	{
+		offices_getLastOffice()->nextOffice = office;
+	}
 	
 	/// END OF EX.5.1.
 		
@@ -79,9 +103,25 @@ officeError offices_checkOffice(tOffice * office)
 	///
 	/// EX.5.1: Validate the contents of the struct and return the correct error message.
 	///
+	//Validate the Address
+	if (strlen(office->address)<2){		
+		return OFFICE_INVALIDADDRESS;
+	}
 	
+	//Validate the city
+	if (strlen(office->city) < 2){
+		return OFFICE_INVALIDCITY;
+	}
 	
-
+	//Validate the Country
+	if (strlen(office->country) < 2){
+		return OFFICE_INVALIDCOUNTRY;
+	}
+	
+	//Validate the Postal code
+	if (strlen(office->postalCode) < 2){
+		return OFFICE_INVALIDPOSTALCODE;
+	}
 	
 	/// END OF EX.5.1
 		

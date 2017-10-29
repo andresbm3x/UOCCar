@@ -174,8 +174,8 @@ void svrMenu_registerNewCar()
 		
 	}	
 	/// END OF EX.3.1
-	err = cars_checkCar(newCar);
 	
+	err = cars_registerNewCar(newCar);
 	
 	// Display the result on screen.
 	if (err == CAR_NOERR)
@@ -206,8 +206,45 @@ void svrMenu_listCars()
 {
 	///
 	/// EX.4.1. Implement de functionality to display the list of cars.
-	///
+	///	
+	helpers_clearScreen();
 	
+	tCar * car;
+	int position=1;
+	car = cars_firstCar;
+	
+	
+	printf("\nList of registered cars\n");
+	printf("\n------------------\n");
+	printf("\n");
+	
+	while (car) {
+		char * carTypeName;
+		
+		carTypeName = malloc(7 * sizeof(char));
+		
+		switch (car->type) {
+			case CAR_ECONOMY:
+			strcpy(carTypeName, "ECONOMY");
+			break;
+			case CAR_SEDAN:
+			strcpy(carTypeName, "SEDAN");
+			break;
+			case CAR_VAGON:
+			strcpy(carTypeName, "VAGON");
+			break;
+			case CAR_SPORT:
+			strcpy(carTypeName, "SPORT");
+			break;
+		}
+		
+		printf("%03d - %s - %s - %s (%s)\n",position,car->plate, car->brand, car->model, carTypeName);
+		position++;
+		car = car->nextCar;
+		
+	}
+	
+	helpers_pressAnyKey();
 	
 	/// END OF EX.4.1.
 }
@@ -221,13 +258,49 @@ void svrMenu_listCars()
  */
 void svrMenu_registerNewOffice()
 {
+	tOffice * newOffice = NULL;
+	officeError err = OFFICE_NOERR;
+	char * errMsg;
+	
+	helpers_clearScreen();
+	
 	///
 	/// EX.5.2: Implement the office registering functionality
 	///
+	newOffice = malloc(sizeof(tOffice));
+	offices_initStruct(newOffice);
 	
+	printf("\nRegister a new office\n");
+	printf("\n------------------\n");
+	printf("\nAddress ID:		");
+	helpers_scanText(newOffice->address,ADDRESS_LENGTH);
+	printf("\nCity:			");
+	helpers_scanText(newOffice->city,CITY_LENGTH);
+	printf("\nCountry:			");
+	helpers_scanText(newOffice->country,COUNTRY_LENGTH);
+	printf("\nPostal Code:		");
+	helpers_scanText(newOffice->postalCode,POSTAL_CODE_LENGTH);
 	
 	/// END OF EX.5.2
+	err = offices_registerNewOffice(newOffice);
 	
+	// Display the result on screen.
+	if (err == OFFICE_NOERR)
+	{
+		helpers_clearScreen();
+		printf("\nOffice successfully registered\n\n");
+		printf("\n---------------------------\n\n");
+	}
+	else
+	{
+		// Some error ocurred. Display the error.
+		free(newOffice);
+		printf("\n\n");
+		errMsg = offices_errMsg(err);
+		printf("\n%s\n", errMsg);
+	}
+	
+	helpers_pressAnyKey();
 }
 
 /*
@@ -241,7 +314,29 @@ void svrMenu_listOffices()
 	///
 	/// EX.5.3: Implement the office listing functionality
 	///
+	helpers_clearScreen();
 	
+	tOffice * office;
+	int position=1;
+	office = offices_firstOffice;
+	
+	
+	printf("\nList of registered Offices\n");
+	printf("\n------------------\n");
+	printf("\n");
+	
+	while (office) {
+		
+		printf("%03d - %s\n",position,office->address);
+		printf("	   %s\n",office->city);
+		printf("	   %s - %s\n\n",office->postalCode, office->country);
+		
+		position++;
+		office = office->nextOffice;
+		
+	}
+	
+	helpers_pressAnyKey();
 	/// END OF EX.5.3
 	
 }
